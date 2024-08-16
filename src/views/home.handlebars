@@ -1,0 +1,21 @@
+<head>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="home-page">
+  <h1>Welcome {{user}}!</h1>
+  <a href="/login" class="logout-button">Logout</a>
+  <ul class="product-list">
+    {{#each products}}
+    <li class="product-item">
+      <div><span class="label">ID:</span> <span>{{this._id}}</span></div>
+      <div><span class="label">Title:</span> <span>{{this.title}}</span></div>
+      <div><span class="label">Description:</span> <span>{{this.description}}</span></div>
+      <div><span class="label">Code:</span> <span>{{this.code}}</span></div>
+      <div><span class="label">Price:</span> <span>{{this.price}}</span></div>
+      <div><span class="label">Status:</span> <span>{{this.status}}</span></div>
+      <div><span class="label">Stock:</span> <span>{{this.stock}}</span></div>
+      <div><span class="label">Category:</span> <span>{{this.category}}</span></div>
+    </li>
+    {{/each}}
+  </ul>
+</body>

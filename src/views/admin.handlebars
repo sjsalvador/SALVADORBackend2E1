@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="home-page">
+  <h1 class="admin-title">ADMIN DASHBOARD</h1>
+  <p class="admin-text">Welcome, {{user}}. This is the ADMIN section.</p>
+  <ul class="admin-menu">
+    <li><a href="/home" class="admin-button">Homepage</a></li>
+    <li>
+      <form action="/api/auth/logout" method="POST" style="display:inline;">
+        <button type="submit" class="admin-button">Logout</button>
+      </form>
+    </li>
+  </ul>
+  <script>
+    const logoutForm = document.querySelector('form[action="/api/auth/logout"]');
+    logoutForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const response = await fetch('/api/auth/logout', { method: 'POST' });
+      if (response.ok) {
+        window.location.href = '/login';
+      }
+    });
+  </script>
+</body>
+</html>

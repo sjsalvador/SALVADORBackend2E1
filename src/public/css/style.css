@@ -1,0 +1,184 @@
+body.form-page {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.form-title {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.form-button:hover {
+  background-color: #45a049;
+}
+
+.form-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.form-text a {
+  color: #333;
+  text-decoration: none;
+}
+
+.form-text a:hover {
+  text-decoration: underline;
+}
+
+/* VISTA HOME */
+
+body.home-page {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  width: 150px;
+  margin: 0 auto 30px;
+}
+
+.logout-button:hover {
+  background-color: #e53935;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto; 
+}
+
+.product-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-item div {
+  margin-bottom: 10px;
+}
+
+.product-item .label {
+  font-weight: bold;
+}
+
+
+/* VISTA ADMIN */
+body.admin-page {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  padding: 20px;
+  margin: 0;
+}
+
+
+.admin-title {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+.admin-text {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.admin-button {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+.admin-button:hover {
+  background-color: #45a049;
+}
+
+.admin-menu {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
