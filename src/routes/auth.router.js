@@ -1,6 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import passport from 'passport';
 import User from '../models/User.js';
 
 const router = express.Router();
@@ -9,9 +10,9 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   try {
     const { first_name, last_name, email, age, password } = req.body;
-    const newUser = new User({ first_name, last_name, email, age, password });
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    const newUser = new User({ first_name, last_name, email, age, password: hashedPassword });
 
-    // Guardar el usuario, bcrypt.hashSync se ejecuta en el pre('save') middleware
     await newUser.save();
 
     // Generar un token JWT
@@ -35,7 +36,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ status: 'error', message: 'Invalid credentials' });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = bcrypt.compareSync(password, user.password);
 
     if (!isMatch) {
       console.log('Contraseña incorrecta');
@@ -55,8 +56,24 @@ router.post('/login', async (req, res) => {
 
 // Ruta de logout
 router.post('/logout', (req, res) => {
-    res.clearCookie('token'); // Elimina la cookie que contiene el token
-    res.redirect('/login'); // Redirige a la página de login
-  });  
+  res.clearCookie('token'); // Elimina la cookie que contiene el token
+  res.status(200).send(); // Envía una respuesta exitosa
+});
+
+// ruta: /api/sessions/current
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  // Si el usuario está autenticado, devuelve sus datos
+  res.json({
+    status: 'success',
+    user: {
+      id: req.user._id,
+      first_name: req.user.first_name,
+      last_name: req.user.last_name,
+      email: req.user.email,
+      age: req.user.age,
+      role: req.user.role,
+    },
+  });
+});
 
 export default router;
